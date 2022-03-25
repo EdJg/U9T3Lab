@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 public class Arc extends Shape
 {
     private int startAngle;
@@ -10,5 +12,10 @@ public class Arc extends Shape
         arcAngle = 70;
     }
 
-    public void drawArc(int x, int y)
+    @Override
+    public void draw(Graphics given)
+    {
+        given.setColor(getColor());
+        given.drawArc(getMinX(), getMinY(), getWidth(), getHeight(), startAngle, arcAngle);
+    }
 }
